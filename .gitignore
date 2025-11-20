@@ -1,0 +1,65 @@
+# Build folders
+build/
+build-*/
+cmake-build-*/
+
+# ESP-IDF specific
+sdkconfig
+sdkconfig.old
+sdkconfig.cmake
+dependencies.lock
+CMakeFiles/
+CMakeCache.txt
+
+# IDF tools and caches
+.espressif/
+tools/
+dist/
+__pycache__/
+*.pyc
+
+# VSCode
+.vscode/
+.vscode-ipch/
+*.code-workspace
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Object and binary files
+*.o
+*.elf
+*.bin
+*.map
+*.hex
+*.a
+
+# Certificates or keys (if any)
+certs/
+*.pem
+*.key
+
+# Python virtual environments
+venv/
+.env/
+.env*/
+
+# Generated partitions or images
+partition_table/
+*.img
+
+# Ignore flash artifacts
+flash_project_args
+flash_args
+
+# OS-specific
+.DS_Store
+Thumbs.db
