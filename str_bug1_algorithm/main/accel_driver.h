@@ -7,6 +7,9 @@ struct accel_driver_values_ms {
     float ax_ms2;
     float ay_ms2;
     float az_ms2;
+    float gx_rad;
+    float gy_rad;
+    float gz_rad;
 };
 
 esp_err_t accel_driver_init(void);
