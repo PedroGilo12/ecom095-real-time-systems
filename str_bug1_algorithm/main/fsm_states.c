@@ -152,11 +152,11 @@ int fsm_state_boundary_following(struct fsm_event *event)
         }
 
         if (last_int == 3) {
-            motor_driver_move_right(255, true);
-            motor_driver_move_left(255, false);
+            motor_driver_move_right(180, true);
+            motor_driver_move_left(180, false);
         } else if (last_int == 4) {
-            motor_driver_move_left(255, true);
-            motor_driver_move_right(255, false);
+            motor_driver_move_left(180, true);
+            motor_driver_move_right(180, false);
         } else {
             uint8_t next_state = FSM_STATE_MOTION_TO_GOAL;
             fsm_event_post(FSM_EVENT_ID_EXIT, &next_state, sizeof(next_state));

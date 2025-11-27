@@ -9,6 +9,7 @@
 #include "esp_rom_sys.h"
 
 #include "fsm.h"
+#include "esp_attr.h"
 #include "odometry_task.h"
 
 #define RIGHT_BUMPER 3
@@ -92,7 +93,7 @@ void app_main(void)
 
     while (1) {
 
-        periodic_delay_ms(6);
+        periodic_delay_ms(4);
 
         switch(counter) {
             case 1: {

@@ -1,8 +1,8 @@
 # Final Project — Real-Time Systems
-Implementation of the Bug 1 Algorithm with Position Estimation Using an Accelerometer
+Implementation of the Bug 2 Algorithm with Position Estimation Using an Accelerometer
 Project Description
 
-This project implements a real-time embedded navigation system based on the classical Bug 1 algorithm. The goal is to guide a mobile robot from a starting point to a target location while avoiding obstacles detected locally.
+This project implements a real-time embedded navigation system based on the classical Bug 2 algorithm. The goal is to guide a mobile robot from a starting point to a target location while avoiding obstacles detected locally.
 
 As part of the Real-Time Systems course requirements, the system integrates several concepts covered in class, including:
 
@@ -19,44 +19,44 @@ The robot uses an onboard accelerometer (such as the MPU6050) to generate a coar
 ## Task T1: Accelerometer Polling
 - Type: Periodic
 - Period (P): 6ms
-- Cost (C): 1ms
+- Cost (C): 2ms
 - Deadline (D): 6ms (hard)
 
 ## Task T2: Odometry Calculation
 - Type: Periodic
 - Period (P): 6ms
-- Cost (C): 3
+- Cost (C): 12us
 - Deadline (D): 6ms (hard)
 
-## Task T3: Finite State Machine for Bug1 Algorithm
+## Task T3: Finite State Machine for Bug2 Algorithm
 - Type: Periodic
 - Period (P): 12ms
-- Cost (C): 1
+- Cost (C): 2us
 - Deadline (D): 12ms (hard)
 
 ## Task T4: Bumpers Interrupt Handle
 - Type: Sporadic
-- Min Interval (min/P): 1000ms
+- Min Interval (min/P): 100ms
 - Cost (C): 5
 - Deadline (D): 10ms (soft)
 
-# Task Schedulling
+# Task Scheduling
 
 | Task | Type      | Period (P) / Min Interval | Cost (C) | Deadline (D) | Notes |
 |------|-----------|---------------------------|----------|--------------|-------|
-| **T1: Accelerometer Polling** | Periodic | 6 ms | 1 ms | 6 ms (hard) | — |
-| **T2: Odometry Calculation**  | Periodic | 6 ms | 3 ms | 6 ms (hard)  | — |
-| **T3: FSM Bug1 Algorithm**    | Periodic | 12 ms | 1 ms | 12 ms (hard) | — |
+| **T1: Accelerometer Polling** | Periodic | 4 ms | 2 ms | 4 ms (hard) | — |
+| **T2: Odometry Calculation**  | Periodic | 4 ms | 12 us | 4 ms (hard)  | — |
+| **T3: FSM Bug1 Algorithm**    | Periodic | 8 ms | 2 us | 8 ms (hard) | — |
 | **T4: Bumper Interrupt**      | Sporadic | 100 ms (min) | ? ms | 10ms (soft) | Interrupt-driven |
 
 ## Scheduling
 
-- Major Cycle: 12ms
-- Minor Cycle: 6ms
+- Major Cycle: 8ms
+- Minor Cycle: 4ms
 
 ![Descrição da imagem](figs/scheduling.png)
 
-# Finite State Machine for Bug 1 Algorithm (T4) description
+# Finite State Machine for Bug 2 Algorithm (T4) description
 
 ```mermaid
 flowchart LR
