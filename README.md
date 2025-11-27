@@ -18,33 +18,43 @@ The robot uses an onboard accelerometer (such as the MPU6050) to generate a coar
 
 ## Task T1: Accelerometer Polling
 - Type: Periodic
-- Period (P): 10ms
+- Period (P): 6ms
 - Cost (C): 1ms
-- Deadline (D): 10ms (hard)
+- Deadline (D): 6ms (hard)
 
 ## Task T2: Odometry Calculation
 - Type: Periodic
-- Period (P): 10ms
-- Cost (C): ?
-- Deadline (D): 1ms (hard)
+- Period (P): 6ms
+- Cost (C): 3
+- Deadline (D): 6ms (hard)
 
-## Task T4: Finite State Machine for Bug1 Algorithm
+## Task T3: Finite State Machine for Bug1 Algorithm
 - Type: Periodic
-- Period (P): 20ms
-- Cost (C): ?
-- Deadline (D): 20ms (hard)
+- Period (P): 12ms
+- Cost (C): 1
+- Deadline (D): 12ms (hard)
 
-## Task T5: Bluetooth Goal Position Updater
+## Task T4: Bumpers Interrupt Handle
 - Type: Sporadic
 - Min Interval (min/P): 1000ms
-- Cost (C): ?
-- Deadline (D): 1000ms (soft)
+- Cost (C): 5
+- Deadline (D): 10ms (soft)
 
-## Task T6: Bumpers Interrupt Handle
-- Type: Sporadic
-- Min Interval (min/P): 1000ms
-- Cost (C): ?
-- Deadline (D): 1000ms (soft)
+# Task Schedulling
+
+| Task | Type      | Period (P) / Min Interval | Cost (C) | Deadline (D) | Notes |
+|------|-----------|---------------------------|----------|--------------|-------|
+| **T1: Accelerometer Polling** | Periodic | 6 ms | 1 ms | 6 ms (hard) | — |
+| **T2: Odometry Calculation**  | Periodic | 6 ms | 3 ms | 6 ms (hard)  | — |
+| **T3: FSM Bug1 Algorithm**    | Periodic | 12 ms | 1 ms | 12 ms (hard) | — |
+| **T4: Bumper Interrupt**      | Sporadic | 100 ms (min) | ? ms | 10ms (soft) | Interrupt-driven |
+
+## Scheduling
+
+- Major Cycle: 12ms
+- Minor Cycle: 6ms
+
+![Descrição da imagem](figs/scheduling.png)
 
 # Finite State Machine for Bug 1 Algorithm (T4) description
 

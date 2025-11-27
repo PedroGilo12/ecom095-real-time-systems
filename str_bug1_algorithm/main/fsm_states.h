@@ -1,6 +1,8 @@
 #ifndef FSM_STATES
 #define FSM_STATES
 
+#include "fsm.h"
+
 enum fsm_state {
     FSM_STATE_WAITING_GOAL = 0,
     FSM_STATE_MOTION_TO_GOAL,

@@ -33,14 +33,16 @@ static struct fsm {
 
 int fsm_event_post(enum fsm_event_id id, uint8_t *data, size_t len)
 {
-    if (self.count == FSM_MAX_EVENT_QUEUE_SIZE)
+    if (self.count == FSM_MAX_EVENT_QUEUE_SIZE) {
         return -1;
+    }
 
     self.event_queue[self.tail].id  = id;
     self.event_queue[self.tail].len = len;
 
-    if (data && len > 0)
+    if (data && len > 0) {
         memcpy(self.event_queue[self.tail].data, data, len);
+    }
 
     self.tail = (self.tail + 1) % FSM_MAX_EVENT_QUEUE_SIZE;
     self.count++;

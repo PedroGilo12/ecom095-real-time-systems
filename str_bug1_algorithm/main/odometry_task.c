@@ -78,7 +78,7 @@ struct accel_driver_values_ms odometry_offsets_calibration(void)
 void odometry_task(void)
 {
     struct accel_driver_values_ms raw = {0};
-    accel_driver_get_values(&raw);
+    accel_driver_get_updated_values(&raw);
 
     struct accel_driver_values_ms linear = {0};
     linear.ax_ms2 = raw.ax_ms2 - self.accel_values_offset.ax_ms2;

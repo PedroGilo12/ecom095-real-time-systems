@@ -10,6 +10,9 @@
 enum fsm_event_id {
     FSM_EVENT_ID_ENTRY = 0,
     FSM_EVENT_ID_EXIT,
+    FSM_EVENT_ID_RUN_TASK,
+    FSM_EVENT_ID_LEFT_BUMPER,
+    FSM_EVENT_ID_RIGHT_BUMPER,
 };
 
 struct fsm_event {

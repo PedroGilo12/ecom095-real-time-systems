@@ -20,6 +20,12 @@
 
 static const char* TAG = "ACCEL_DRIVER";
 
+static struct accel_driver {
+    struct accel_driver_values_ms values;
+} self = {
+    .values = {},
+};
+
 static esp_err_t accel_driver_write_byte(uint8_t reg, uint8_t data)
 {
     uint8_t buf[2] = {reg, data};
@@ -89,4 +95,12 @@ esp_err_t accel_driver_get_values(struct accel_driver_values_ms* values)
     values->gz_rad = GYRO_RAW_TO_RADS(gz);
 
     return ESP_OK;
+}
+
+void accel_driver_task() {
+    accel_driver_get_values(&self.values);
+}
+
+void accel_driver_get_updated_values(struct accel_driver_values_ms* values) {
+    *values = self.values;
 }
